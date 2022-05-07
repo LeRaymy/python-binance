@@ -1,5 +1,6 @@
 aiohttp
 dateparser
+loguru
 requests
 ujson
 websockets

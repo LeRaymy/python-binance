@@ -1,7 +1,7 @@
 import asyncio
 import gzip
 import json
-import logging
+# import logging
 import time
 from asyncio import sleep
 from enum import Enum
@@ -9,6 +9,7 @@ from random import random
 from socket import gaierror
 from typing import Optional, List, Dict, Callable, Any
 
+from loguru import logger
 import websockets as ws
 from websockets.exceptions import ConnectionClosedError
 
@@ -48,7 +49,8 @@ class ReconnectingWebsocket:
         self, url: str, path: Optional[str] = None, prefix: str = 'ws/', is_binary: bool = False, exit_coro=None
     ):
         self._loop = asyncio.get_event_loop()
-        self._log = logging.getLogger(__name__)
+        # self._log = logging.getLogger(__name__)
+        self._log = logger
         self._path = path
         self._url = url
         self._exit_coro = exit_coro
